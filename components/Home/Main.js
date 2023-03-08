@@ -1,24 +1,30 @@
 import { useEffect, useState, useRef } from "react"
+import MainStyled from "../../Styles/Home/Main"
 
 const Main = () => {
-  const [tareas, setTareas] = useState([])
-  const input = useRef()
-
-  const handleSave = () => {
-    setTareas([...tareas, input.current.value])
-    input.current.value = ''
+  const [form, setForm] = useState({})
+  const handleChangeValue = (input) => {
+    setForm({
+      ...form,
+      [input.target.name]: input.target.value,
+    })
   }
+
+  const handleSubmit = () => {
+    console.log('voy a enviar al back ', form)
+  }
+
   return (
-    <>
-    <h1>Tareas</h1>
-    <input ref={input} />
-    <button type="button" onClick={handleSave} >Guardar</button>
-    {
-      tareas.map((item) => (
-        <p>{item}</p>
-      ))
-    }
-    </>
+    <MainStyled>
+      <h4>REGISTRATE AMIGO</h4>
+      <label>Nombre</label>
+      <input name="name" onChange={handleChangeValue} placeholder="Tu nombre" />
+      <label>Apellido</label>
+      <input name="lastname" onChange={handleChangeValue} placeholder="Tu apellido" />
+      <label>email</label>
+      <input name="email" onChange={handleChangeValue} type="email" placeholder="Tu email" />
+      <button onClick={handleSubmit}>Enviar</button>
+    </MainStyled>
   )
 }
 

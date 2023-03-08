@@ -1,5 +1,7 @@
+import HeaderStyled from "../../Styles/Home/Header"
+
 const Header = () => (
-  <h1>Hola soy el header</h1>
+  <HeaderStyled />
 )
 
 export default Header

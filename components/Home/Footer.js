@@ -1,5 +1,7 @@
+import FooterStyled from "../../Styles/Home/Footer"
+
 const Footer = () => (
-  <h1>Hola soy footer</h1>
+  <FooterStyled />
 )
 
 export default Footer
